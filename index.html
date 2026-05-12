@@ -1,1 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rousix Ownership Roadmap</title>
+  <meta name="description" content="A simple 36-month Rousix planning tool for turning a goal into a clear contribution, infrastructure, surplus, and ownership roadmap." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#overview" aria-label="Rousix Ownership Roadmap home">
+      <span class="brand-badge">R</span>
+      <span class="brand-text">
+        <strong>Rousix Ownership Roadmap</strong>
+        <small>Plan the path before you commit.</small>
+      </span>
+    </a>
 
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#planner">Start Planning</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#explain">How It Works</a>
+      <a href="#start">Get Started</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="notice" aria-label="Important disclaimer">
+      <strong>Important:</strong> This tool is for planning and education only. It does not promise approval, profit, return, ownership, or a fixed timeline. Rousix machines are multi-purpose computers, not financial products.
+    </section>
+
+    <section id="overview" class="screen active" data-screen="overview">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Surplus ownership planning</p>
+          <h1>See the path before you take the risk.</h1>
+          <p class="hero-lead">Rousix helps a person turn a real-world goal — a car, truck, home, workstation, or business asset — into a simple 36-month plan. The roadmap shows the goal, the contribution path, the infrastructure suggestion, and the gap that still has to be solved.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#planner">Start Planning</a>
+            <a class="button secondary" href="#roadmap">View Roadmap</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Roadmap preview">
+          <div class="path-strip">
+            <span>Goal</span>
+            <i></i>
+            <span>Contribution</span>
+            <i></i>
+            <span>Infrastructure</span>
+            <i></i>
+            <span>Ownership</span>
+          </div>
+          <div class="hero-metrics">
+            <article>
+              <small>Default plan</small>
+              <strong>36 months</strong>
+            </article>
+            <article>
+              <small>Minimum start</small>
+              <strong>$5+</strong>
+            </article>
+            <article>
+              <small>Monthly minimum</small>
+              <strong>$1+</strong>
+            </article>
+            <article>
+              <small>Planning style</small>
+              <strong>Plain English</strong>
+            </article>
+          </div>
+        </aside>
+      </div>
+
+      <div class="shell cards-3">
+        <article class="card lift-card">
+          <span class="card-number">01</span>
+          <h2>Pick the goal</h2>
+          <p>Choose what the person wants to own: car, truck, home, equipment, business asset, computer, or something else.</p>
+        </article>
+        <article class="card lift-card">
+          <span class="card-number">02</span>
+          <h2>Find the real gap</h2>
+          <p>The planner subtracts the Rousix infrastructure cost first, then shows what remains to support the ownership goal.</p>
+        </article>
+        <article class="card lift-card">
+          <span class="card-number">03</span>
+          <h2>Start small or go big</h2>
+          <p>A person can begin with a small step, build trust in the process, and increase only after the roadmap makes sense.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="planner" class="screen" data-screen="planner">
+      <div class="shell page-title">
+        <p class="eyebrow">Start planning</p>
+        <h1>Build a 36-month ownership roadmap.</h1>
+        <p>The goal is clarity. Enter simple numbers. The app will explain the plan as if it were talking to someone seeing this for the first time.</p>
+      </div>
+
+      <div class="shell planner-layout">
+        <form id="planForm" class="card form-card">
+          <section class="form-block">
+            <h2>Individual Goal</h2>
+            <label>
+              Plan name
+              <input id="planName" type="text" value="Sample home roadmap" autocomplete="off" />
+            </label>
+            <label>
+              Goal type
+              <select id="goalType">
+                <option>Vehicle</option>
+                <option>Truck</option>
+                <option selected>Home</option>
+                <option>Business Equipment</option>
+                <option>Workstation</option>
+                <option>Education</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              Price
+              <input id="goalPrice" type="number" min="100" step="100" value="300000" />
+            </label>
+          </section>
+
+          <section class="form-block">
+            <h2>Inputs</h2>
+            <label>
+              Starting contribution
+              <input id="startAmount" type="number" min="5" step="5" value="5000" />
+              <small id="startGuidance">For this sample, $5,000 is the realistic starting point.</small>
+            </label>
+            <label>
+              Monthly contribution
+              <input id="monthlyAmount" type="number" min="1" step="1" value="1527" />
+              <small id="monthlyGuidance">For this sample, $1,527 per month keeps the plan near the 36-month path.</small>
+            </label>
+            <label>
+              Planning timeline
+              <select id="timeline">
+                <option value="24">24 months</option>
+                <option value="30">30 months</option>
+                <option value="36" selected>36 months</option>
+              </select>
+            </label>
+          </section>
+
+          <section class="form-block">
+            <h2>Rousix Assumptions</h2>
+            <label>
+              Scenario
+              <select id="scenario">
+                <option value="5" selected>5x base case — 36-month planning example</option>
+                <option value="10">10x strong case — 36-month planning example</option>
+                <option value="15">15x network-effect case — could shorten the path</option>
+                <option value="40">40x aggressive network-effect case — highest risk</option>
+              </select>
+              <small>These are educational examples. They are not guaranteed returns.</small>
+            </label>
+            <label>
+              Infrastructure suggestion
+              <select id="tierChoice">
+                <option value="auto" selected>Auto-suggest from the numbers</option>
+                <option value="basic">Basic Tablet</option>
+                <option value="standard">Standard</option>
+                <option value="standardPlus">Standard Plus</option>
+                <option value="premium">Premium</option>
+                <option value="titan">Titan</option>
+                <option value="colossus">Colossus</option>
+                <option value="olympus">Olympus</option>
+              </select>
+              <small>The suggestion changes when price, starting contribution, monthly contribution, timeline, or scenario changes.</small>
+            </label>
+          </section>
+
+          <label class="acknowledge">
+            <input id="ack" type="checkbox" checked />
+            <span>I understand this is a planning demo, not a promise that the goal will be reached.</span>
+          </label>
+
+          <button class="button primary full" type="submit">Build Roadmap</button>
+        </form>
+
+        <aside class="card live-card" aria-live="polite">
+          <p class="eyebrow">Live plan summary</p>
+          <h2 id="liveTitle">Sample home roadmap</h2>
+          <div class="score-ring" aria-label="Plan coverage">
+            <svg viewBox="0 0 120 120" role="img">
+              <circle class="ring-bg" cx="60" cy="60" r="50"></circle>
+              <circle id="ringFill" class="ring-fill" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div>
+              <strong id="coverageText">0%</strong>
+              <span>sample coverage</span>
+            </div>
+          </div>
+
+          <div class="metric-list">
+            <article><span>Suggested tier</span><strong id="liveTier">Premium</strong></article>
+            <article><span>Machine cost handled first</span><strong id="liveMachineCost">$12,450</strong></article>
+            <article><span>Contribution still needed</span><strong id="liveGap">$0</strong></article>
+            <article><span>Plan status</span><strong id="liveStatus">Review needed</strong></article>
+          </div>
+
+          <p id="liveSummary" class="plain-box">Your summary will appear here.</p>
+          <div class="button-row">
+            <button id="copyLive" class="button secondary dark-text" type="button">Copy Summary</button>
+            <a class="button soft" href="#roadmap">View Roadmap</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="roadmap" class="screen" data-screen="roadmap">
+      <div class="shell page-title">
+        <p class="eyebrow">Roadmap</p>
+        <h1>One page. Top to bottom. Easy to read.</h1>
+        <p>This is the page to print, copy, or review with someone who wants to understand the path.</p>
+      </div>
+
+      <div class="shell roadmap-layout">
+        <section class="card roadmap-head">
+          <div>
+            <p class="eyebrow">Current plan</p>
+            <h2 id="roadTitle">Sample home roadmap</h2>
+            <p id="roadSummary">Build a plan to create the roadmap.</p>
+          </div>
+          <div class="button-row roadmap-actions">
+            <button id="copyRoad" class="button secondary dark-text" type="button">Copy Summary</button>
+            <button id="printRoad" class="button soft" type="button">Print Roadmap</button>
+          </div>
+        </section>
+
+        <section class="road-stats">
+          <article class="card stat-card"><span>Goal</span><strong id="statGoal">Home</strong></article>
+          <article class="card stat-card"><span>Price</span><strong id="statPrice">$300,000</strong></article>
+          <article class="card stat-card"><span>Timeline</span><strong id="statTimeline">36 months</strong></article>
+          <article class="card stat-card"><span>Infrastructure</span><strong id="statTier">Premium</strong></article>
+        </section>
+
+        <section class="vertical-plan" aria-label="36-month plan flow">
+          <article class="plan-step card">
+            <span class="step-dot">1</span>
+            <div>
+              <h3>Understand the planning tool</h3>
+              <p>First, understand what this is. It is a roadmap. It helps explain the goal, the money path, and the risk. It is not a guarantee.</p>
+            </div>
+          </article>
+
+          <article class="plan-step card">
+            <span class="step-dot">2</span>
+            <div>
+              <h3>Start planning</h3>
+              <p id="stepStart">Choose the goal, enter the price, enter the starting contribution, enter the monthly contribution, and choose a 24 to 36 month timeline.</p>
+            </div>
+          </article>
+
+          <article class="plan-step card">
+            <span class="step-dot">3</span>
+            <div>
+              <h3>Build the roadmap</h3>
+              <p id="stepBuild">The app calculates how much money must be available for the goal after the Rousix machine is handled first.</p>
+            </div>
+          </article>
+
+          <article class="plan-step card">
+            <span class="step-dot">4</span>
+            <div>
+              <h3>Review the infrastructure suggestion</h3>
+              <p id="stepTier">The app suggests a Rousix infrastructure tier based on the size of the goal and the contribution path.</p>
+            </div>
+          </article>
+
+          <article class="plan-step card">
+            <span class="step-dot">5</span>
+            <div>
+              <h3>Review the gap in plain English</h3>
+              <p id="stepGap">The app explains what remains after direct contributions and after the infrastructure cost is deducted.</p>
+            </div>
+          </article>
+
+          <article class="plan-step card">
+            <span class="step-dot">6</span>
+            <div>
+              <h3>Conclude and decide the next step</h3>
+              <p>Start small and test the process, or go larger only after the risk makes sense. No risk, no reward — but the risk should be clear before the person moves forward.</p>
+            </div>
+          </article>
+        </section>
+
+        <section id="warnings" class="warning-stack" aria-live="polite"></section>
+      </div>
+    </section>
+
+    <section id="explain" class="screen" data-screen="explain">
+      <div class="shell page-title">
+        <p class="eyebrow">How it works</p>
+        <h1>A clearer way to explain surplus-based planning.</h1>
+        <p>The language here is direct on purpose. The person should not need a finance degree to understand the idea.</p>
+      </div>
+
+      <div class="shell explain-stack">
+        <article class="card explain-card">
+          <h2>1. Clear goal</h2>
+          <p>The person chooses one thing they want to own: a car, truck, home, computer, business asset, or piece of equipment. The app turns that goal into a number.</p>
+        </article>
+
+        <article class="card explain-card">
+          <h2>2. Goal pathway</h2>
+          <p>The planner shows a direct path toward the goal. It asks: “How much can you start with, how much can you add each month, and how much time do we have?”</p>
+        </article>
+
+        <article class="card explain-card">
+          <h2>3. Rousix infrastructure first</h2>
+          <p>The Rousix machine is handled first. If the starting contribution does not cover the machine, the remaining machine cost is paid from the monthly contribution before the rest of the plan can support the goal.</p>
+        </article>
+
+        <article class="card explain-card">
+          <h2>4. Network effect, stated simply</h2>
+          <p>If only a few people contribute small amounts, the system has less power. If more people apply, contribute, and purchase infrastructure, the network may become more useful. That is why the app shows 5x, 10x, 15x, and 40x examples — but they remain examples, not promises.</p>
+        </article>
+
+        <article class="card explain-card strong-card">
+          <h2>5. Careful expectations</h2>
+          <p>Rousix can help clarify your goal, answer concerns, explain the onboarding steps, and help you decide whether to start small or go big. The honest message is simple: start with what you can afford to risk, build trust in the process, then increase only if the path makes sense.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="start" class="screen" data-screen="start">
+      <div class="shell page-title">
+        <p class="eyebrow">Get started</p>
+        <h1>Begin with a small step.</h1>
+        <p>The simplest real-world flow is a $1 planning deposit, a $5+ starting contribution, and a $1+ monthly contribution. Bigger plans can come later.</p>
+      </div>
+
+      <div class="shell start-layout">
+        <article class="card start-card">
+          <h2>Simple onboarding flow</h2>
+          <ol class="simple-list">
+            <li><strong>Enter personal credentials.</strong> Name, phone, email, and basic contact information.</li>
+            <li><strong>Choose your goal.</strong> Vehicle, home, equipment, business, workstation, or other.</li>
+            <li><strong>Enter the price.</strong> Keep the term simple: price.</li>
+            <li><strong>Enter contribution amounts.</strong> Starting contribution and monthly contribution.</li>
+            <li><strong>Review the roadmap.</strong> Print it, copy it, and talk through the risk.</li>
+            <li><strong>Start small or go big.</strong> Begin with a small test or move forward with a larger plan only after the person understands the risk.</li>
+          </ol>
+        </article>
+
+        <article class="card payment-card">
+          <h2>Payment step demo</h2>
+          <p>The payment step is presented as a secure hosted checkout action. The page itself does not collect card numbers.</p>
+          <div class="payment-actions">
+            <a class="button primary full" href="https://rousix.org/" target="_blank" rel="noopener">Start $1 Planning Deposit</a>
+            <a class="button secondary dark-text full" href="https://rousix.org/" target="_blank" rel="noopener">Start $5+ Contribution</a>
+            <a class="button soft full" href="https://rousix.org/" target="_blank" rel="noopener">Start $1+ Monthly</a>
+          </div>
+          <p class="small-note">These buttons send the person to Rousix.org for the real next step. This GitHub Pages prototype stays static and public.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Rousix Ownership Roadmap prototype. Planning and education only. No guaranteed profits, returns, approvals, or timelines.</p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
